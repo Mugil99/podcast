@@ -85,3 +85,28 @@ a{
   text-align: left;
   width:100%;
 }
+
+.profile-info{
+  font-size: 1.5rem;
+  font-weight: 300;
+  border:2px solid var(--purple-grey);
+  border-radius:1rem;
+  padding:1rem 3rem;
+  width:50%;
+  margin: auto;
+  margin-top: 2rem;
+  background-color: rgba(135, 83, 165, 0.3);
+}
+.profile{
+  overflow-x: hidden;
+}
+.profile-pods{
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  margin-bottom: 3rem;
+}
+.profile-text{
+  text-align: center;
+  margin-bottom: 2rem ;
+}

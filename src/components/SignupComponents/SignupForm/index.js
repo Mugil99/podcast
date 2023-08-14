@@ -1,9 +1,10 @@
 import React from "react";
 import InputComponent from "../../common/Input";
+import FileInput from "../../common/Input/FileInput";
 import Button from "../../common/Button";
 import { useState } from'react';
 // Firebase Auth API imports
-import {auth,db} from "../../../firebase";
+import {auth,db, storage} from "../../../firebase";
 import {
     createUserWithEmailAndPassword,
 }from 'firebase/auth';
@@ -30,21 +31,21 @@ function SignupForm(){
                 auth,email,password
             );
             const user=userCredential.user;
-            console.log(user);
+            // console.log(user);
             //Saving user's details
-            await setDoc(doc(db,"users",user.uid),{
+            await setDoc(doc(db,"users",user.uid),{ //dont want the doc id to be random,,so giving the uid
                name :fullName,
                email:email,
                uid:user.uid,
-               
+              
             });
             dispatch(setUser({
                 name :fullName,
                 email:email,
                 uid:user.uid,
-                
+              
              }));
-             
+
              toast.success("User has been successfully created");
              setLoading(false);
              navigate("/profile");
